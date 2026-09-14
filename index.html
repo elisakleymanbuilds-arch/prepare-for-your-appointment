@@ -1,4 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prepare for Your Appointment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="icon">📋</span>
+        <span class="title-text">Prepare for Your Appointment</span>
+    </div>
+      <span class="badge-student">Week 5 MVP</span>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <div class="safety-banner" role="alert">
+      <strong>Important:</strong> This tool does not diagnose, interpret medical results, or give medical advice. It only helps you prepare questions for your doctor.
+    </div>
+
+    <div id="validationAlert" class="alert-box" style="display: none;"></div>
+
+    <div class="grid-layout">
+
+      <section class="card">
+        <h2>Before Your Appointment</h2>
+        <p class="subtitle">Tell us what you received so we can help you prepare questions.</p>
+
+        <form id="questionForm">
+          <div class="form-group">
+            <label for="userSituation">What are you dealing with?</label>
+            <textarea id="userSituation" rows="3" placeholder="e.g., I received blood test results and I do not know what to ask."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="userConcern">What are you worried about?</label>
+            <textarea id="userConcern" rows="3" placeholder="e.g., I am worried and do not know what questions to ask my doctor."></textarea>
+          </div>
+
+          <button type="submit" id="generateBtn" class="btn btn-primary">
+            Prepare My Questions
+          </button>
+        </form>
+      </section>
+
+      <section class="card" id="questionsCard">
+        <div class="card-header-flex">
+          <h2>Questions to Ask Your Doctor</h2>
+          <span class="simulated-badge">Simulated AI Output (Educational Demo)</span>
+        </div>
+
+        <p class="subtitle">Take these questions to your consultation. Check them off as you ask them.</p>
+
+        <div id="emptyStateQuestions" class="empty-state">
+          Fill out the form on the left and click "Prepare My Questions" to get your checklist.
+        </div>
+
+        <ul id="questionsList" class="checklist" style="display: none;"></ul>
+      </section>
+
+    </div>
+
+    <section class="card mt-20">
+      <h2>After Your Appointment</h2>
+      <p class="subtitle">Write down the instructions and follow-up steps your doctor gave you so you don't forget them.</p>
+
+      <div class="form-group">
+        <label for="doctorNotes">Doctor's instructions and next steps</label>
+        <textarea id="doctorNotes" rows="4" placeholder="Write down what your doctor explained and your next steps."></textarea>
+      </div>
+
+      <div class="button-row">
+        <button type="button" id="saveNotesBtn" class="btn btn-secondary">
+          Save My Notes
+        </button>
+
+        <button type="button" id="clearAllBtn" class="btn btn-outline">
+          Clear All
+        </button>
+
+        <span id="saveStatus" class="save-status-msg" style="display: none;">
+          Saved to your browser!
+        </span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Educational Prototype — Business Bending Week 5: Detection-to-treatment navigation in Mexico.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
