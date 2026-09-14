@@ -81,9 +81,23 @@ questionForm.addEventListener("submit", function(event) {
 saveNotesBtn.addEventListener("click", function() {
   const notes = doctorNotes.value.trim();
 
+  if (!notes) {
+    saveStatus.textContent =
+      "Please write your doctor's instructions before saving.";
+    saveStatus.style.color = "#b91c1c";
+    saveStatus.style.display = "inline";
+
+    setTimeout(function() {
+      saveStatus.style.display = "none";
+    }, 3000);
+
+    return;
+  }
+
   localStorage.setItem(STORAGE_KEY_NOTES, notes);
 
   saveStatus.textContent = "Saved to your browser!";
+  saveStatus.style.color = "#15803d";
   saveStatus.style.display = "inline";
 
   setTimeout(function() {
